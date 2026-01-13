@@ -4,7 +4,6 @@ import Login from "./Login"
 import { useEffect, useState } from "react"
 import { supabase } from "./supabase"
 
-
 function App() {
   const { user, loading } = useAuth()
   const [consumos, setConsumos] = useState([])
@@ -36,7 +35,7 @@ function App() {
     loadUsers()
   }, [])
 
-  // 🔹 carregar consumos
+  // 🔹 carregar consumos e atualizar em tempo real
   useEffect(() => {
     async function carregarConsumos() {
       const { data } = await supabase
@@ -46,6 +45,18 @@ function App() {
       setConsumos(data || [])
     }
     carregarConsumos()
+
+    // 🔹 Realtime seguro: só ouvir inserts
+    const subscription = supabase
+      .channel('entries')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'entries' }, payload => {
+        setConsumos(prev => [payload.new, ...prev])
+      })
+      .subscribe()
+
+    return () => {
+      supabase.removeChannel(subscription)
+    }
   }, [])
 
   // 🔹 salvar consumo
@@ -97,7 +108,7 @@ function App() {
     <div className="container">
       <div className="header">
         <h1 className="title">1200 Colas</h1>
-        <div className="user-greeting">Olá, {user.email}</div>
+        <div className="user-greeting">Olá, {users.find(u => u.id === user.id)?.name || user.email}!</div>
         <button className="logout" onClick={() => supabase.auth.signOut()}>
           🚪 Sair
         </button>
