@@ -1,0 +1,16 @@
+{
+  "name": "1200colas",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3",
+    "autoprefixer": "^10.4.0",
+    "vite": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

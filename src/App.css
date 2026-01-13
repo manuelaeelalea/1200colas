@@ -1,0 +1,180 @@
+/* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 2rem;
+  margin: 0;
+  color: #e53935;
+}
+
+.user-greeting {
+  position: top;
+  top: 0;
+  right: 0;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.logout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  border: 2px solid #e53935;
+  color: #e53935;
+  padding: 5px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout:hover {
+  background-color: #e53935;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Group title */
+.group-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Input row */
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input, .select, .btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  transition: all 0.2s ease;
+}
+
+.input:focus, .select:focus {
+  border-color: #e53935;
+  outline: none;
+}
+
+.select {
+  cursor: pointer;
+}
+
+.btn {
+  background-color: #e53935;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background-color: #d32f2f;
+  transform: translateY(-2px);
+}
+
+/* Progress bars */
+.progresso {
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  background-color: #eee;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 20px;
+  margin-bottom: 5px;
+}
+
+.progress-bar.unidades .progress {
+  background-color: #4caf50;
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.progress-bar.total-ml .progress {
+  background-color: #2196f3;
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+/* Ranking */
+.ranking ol {
+  padding-left: 20px;
+}
+
+.ranking li {
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+/* Histórico cards */
+.historico {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.card {
+  padding: 12px 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  color: #fff;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Flavor colors */
+.card.cola {
+  background-color: #e53935;
+}
+
+.card.limão {
+  background-color: #cddc39;
+  color: #333;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 40px;
+}
